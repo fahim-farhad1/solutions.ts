@@ -31,11 +31,30 @@
 
 // Problem 3: Define a union type StringOrNumber and create a function checkType that uses type guards to return "String" if the input is a string or "Number" if the input is a number.
 
-function checkType(value: string | number): string {
-  if (typeof value == "string") {
-    return "String";
-  } else return "Number";
-}
-const catchReturnType = checkType("l");
+// function checkType(value: string | number): string {
+//   if (typeof value == "string") {
+//     return "String";
+//   }
+//   else return "Number";
+// }
+// const catchReturnType = checkType("l");
 
-console.log(catchReturnType);
+// console.log(catchReturnType);
+
+// Problem 4: Write a generic function getProperty that takes an object and a key, then returns the value of that key. Use constraints to ensure the key exists on the object.
+
+type User = {
+  id: number;
+  name: string;
+  age: number;
+};
+const user: User = { id: 1, name: "John Doe", age: 21 };
+
+const getProperty = <T>(Obj: T, value: keyof T) => {
+  return Obj[value];
+};
+
+const get = getProperty(user, "name");
+
+// Sample Output:
+console.log(`"${get}"`);
