@@ -84,28 +84,44 @@
 // Problem 6: Create a class Person with a name and age. Then, create a subclass Student that adds a grade property.
 // Include a method getDetails in the Student class that returns a string with the student's name, age, and grade.
 
-class Person {
-  name: string;
-  age: number;
+// class Person {
+//   name: string;
+//   age: number;
 
-  constructor(n: string, a: number) {
-    this.name = n;
-    this.age = a;
-  }
+//   constructor(n: string, a: number) {
+//     this.name = n;
+//     this.age = a;
+//   }
+// }
+
+// class Student extends Person {
+//   grade: string;
+//   constructor(grade: string, n: string, a: number) {
+//     super(n, a);
+//     this.grade = grade;
+//   }
+
+//   getDetails = () => {
+//     return `Name:${this.name} Age:${this.age} Grade:${this.grade}`
+//   };
+// }
+
+// const student1 = new Student('A',"Fahim Farhad", 2);
+
+// console.log(student1.getDetails())
+
+
+
+// Problem 7: Create a function getIntersection that takes two arrays of numbers and returns a 
+// new array containing only the elements that are present in both arrays.
+
+const getIntersection = (ar1: number[], ar2: number[]) =>{
+
+  const res = ar1.filter((num) => ar2.includes(num))
+
+  return res
 }
 
-class Student extends Person {
-  grade: string;
-  constructor(grade: string, n: string, a: number) {
-    super(n, a);
-    this.grade = grade;
-  }
+const result = getIntersection([1, 2, 3, 4, 5], [3, 4, 5, 6, 7])
 
-  getDetails = () => {
-    return `Name:${this.name} Age:${this.age} Grade:${this.grade}`
-  };
-}
-
-const student1 = new Student('A',"Fahim Farhad", 2);
-
-console.log(student1.getDetails())
+console.log(result)
