@@ -43,41 +43,69 @@
 
 // Problem 4: Write a generic function getProperty that takes an object and a key, then returns the value of that key. Use constraints to ensure the key exists on the object.
 
-type User = {
-  id: number;
-  name: string;
-  age: number;
-};
-const user: User = { id: 1, name: "John Doe", age: 21 };
+// type User = {
+//   id: number;
+//   name: string;
+//   age: number;
+// };
+// const user: User = { id: 1, name: "John Doe", age: 21 };
 
-const getProperty = <T>(Obj: T, value: keyof T) => {
-  return Obj[value];
-};
+// const getProperty = <T>(Obj: T, value: keyof T) => {
+//   return Obj[value];
+// };
 
-const get = getProperty(user, "name");
+// const get = getProperty(user, "name");
 
-console.log(`"${get}"`);
+// console.log(`"${get}"`);
 
 // Problem: 5 Define an interface Book with properties title, author, and publishedYear.
 // Create a function toggleReadStatus that accepts a Book object and returns a new object
 // with an added isRead property (boolean), defaulting to true.
 
-interface Book {
-  title: string;
-  author: string;
-  publishedYear: number;
+// interface Book {
+//   title: string;
+//   author: string;
+//   publishedYear: number;
+// }
+
+// const myBook: Book = {
+//   title: "TypeScript Guide",
+//   author: "Jane Doe",
+//   publishedYear: 2024,
+// };
+
+// const toggleReadStatus = (book: Book) => {
+//   return { ...book, isRead: true };
+// };
+
+// const getValue = toggleReadStatus(myBook);
+// console.log(getValue);
+
+// Problem 6: Create a class Person with a name and age. Then, create a subclass Student that adds a grade property.
+// Include a method getDetails in the Student class that returns a string with the student's name, age, and grade.
+
+class Person {
+  name: string;
+  age: number;
+
+  constructor(n: string, a: number) {
+    this.name = n;
+    this.age = a;
+  }
 }
 
-const myBook: Book = {
-  title: "TypeScript Guide",
-  author: "Jane Doe",
-  publishedYear: 2024,
-};
+class Student extends Person {
+  grade: string;
+  constructor(grade: string, n: string, a: number) {
+    super(n, a);
+    this.grade = grade;
+  }
 
-
-const toggleReadStatus = (book : Book) => {
-  return {...book, isRead: true}
+  getDetails = () => {
+    return `Name:${this.name} Age:${this.age} Grade:${this.grade}`
+  };
 }
 
-const getValue = toggleReadStatus(myBook);
-console.log(getValue)
+const student1 = new Student('A',"Fahim Farhad", 2);
+
+console.log(student1.getDetails())
