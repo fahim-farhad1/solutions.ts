@@ -126,7 +126,7 @@ console.log(student1.getDetails())
 // Problem 7: Create a function getIntersection that takes two arrays of numbers and returns a 
 // new array containing only the elements that are present in both arrays.
 
-const getIntersection = (ar1: number[], ar2: number[]) =>{
+const getIntersection = (ar1: number[], ar2: number[]): number[] =>{
 
   const res = ar1.filter((num) => ar2.includes(num))
 
